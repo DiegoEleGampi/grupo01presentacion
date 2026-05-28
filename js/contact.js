@@ -11,9 +11,20 @@
     const textoError = document.getElementById("textoError");
     const btnHtmlOriginal = '<i class="fa fa-paper-plane me-2"></i>Enviar mensaje';
 
+    const ACCESS_KEY = "4880cb53-98e8-4480-91e0-fc8f125c8cab";
+
     const ASUNTOS_VALIDOS = ["admision", "becas", "pensiones", "academico", "sga", "otro"];
-    const REGEX_NOMBRE = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü][A-Za-zÁÉÍÓÚáéíóúÑñÜü\s'-]{1,49}$/;
-    const REGEX_EMAIL = /^[a-zA-Z0-9._%+-]+@((gmail|outlook|hotmail)\.com|senati\.com\.pe|senati\.pe)$/i;
+    const ASUNTO_MAP = {
+        admision:  "Admisión y Matrícula 2026",
+        becas:     "Programa de Becas",
+        pensiones: "Información sobre Pensiones",
+        academico: "Consulta Académica",
+        sga:       "Sistema SGA",
+        otro:      "Otro",
+    };
+
+    const REGEX_NOMBRE   = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü][A-Za-zÁÉÍÓÚáéíóúÑñÜü\s'-]{1,49}$/;
+    const REGEX_EMAIL    = /^[a-zA-Z0-9._%+-]+@((gmail|outlook|hotmail)\.com|senati\.com\.pe|senati\.pe)$/i;
     const REGEX_TELEFONO = /^9[0-9]{8}$/;
 
     const campos = {
@@ -197,20 +208,40 @@
         btn.disabled = true;
         btn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i>Enviando...';
 
-        fetch("php/contact.php", { method: "POST", body: new FormData(form) })
-            .then(function (res) {
-                if (!res.ok) throw new Error("Error del servidor");
-                return res.json();
-            })
+        const asuntoTexto = ASUNTO_MAP[campos.asunto.el.value] || campos.asunto.el.value;
+        const telefonoVal = campos.telefono.el.value.trim() || "No proporcionado";
+
+        const payload = {
+            access_key: ACCESS_KEY,
+            subject: "Harrow School — Nuevo mensaje de contacto: " + asuntoTexto,
+            from_name: "Harrow School Web",
+            name: campos.nombre.el.value.trim() + " " + campos.apellido.el.value.trim(),
+            email: campos.email.el.value.trim(),
+            message:
+                "📩 MENSAJE DE CONTACTO\n\n" +
+                "── DATOS DEL REMITENTE ──\n" +
+                "Nombre: "   + campos.nombre.el.value.trim() + " " + campos.apellido.el.value.trim() + "\n" +
+                "Correo: "   + campos.email.el.value.trim() + "\n" +
+                "Teléfono: " + telefonoVal + "\n\n" +
+                "── ASUNTO ──\n" + asuntoTexto + "\n\n" +
+                "── MENSAJE ──\n" + campos.mensaje.el.value.trim()
+        };
+
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify(payload)
+        })
+            .then(function (res) { return res.json(); })
             .then(function (data) {
-                if (data.status === "success") {
-                    mostrarExito(data.message || "¡Mensaje enviado! Nos comunicaremos contigo pronto.");
+                if (data.success) {
+                    mostrarExito("¡Mensaje enviado! Nos comunicaremos contigo pronto.");
                 } else {
                     mostrarError(data.message || "No se pudo enviar el mensaje. Revisa los datos e inténtalo de nuevo.");
                 }
             })
             .catch(function () {
-                mostrarError("No se pudo conectar con el servidor. Verifica tu conexión o que el sitio esté en un hosting con PHP.");
+                mostrarError("No se pudo conectar. Verifica tu conexión a internet e inténtalo de nuevo.");
             })
             .finally(function () {
                 btn.disabled = false;
