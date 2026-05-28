@@ -1,0 +1,627 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Harrow School — Testimonios</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Harrow School, testimonios, opiniones, padres de familia, alumnos, Nuevo Chimbote" name="keywords">
+    <meta content="Lee lo que dicen los padres de familia y alumnos sobre Harrow School S.A.C." name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .testimonial-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid rgba(11,31,58,0.08);
+            transition: .4s;
+            position: relative;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(11,31,58,0.12);
+            border-color: var(--primary);
+        }
+        .testimonial-card .quote-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .star-rating i { color: var(--primary); font-size: 0.85rem; }
+        .avatar-circle {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+        .avatar-initials {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1rem;
+            border: 3px solid var(--primary);
+            flex-shrink: 0;
+        }
+        .stat-box {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 3px solid var(--primary);
+            box-shadow: 0 2px 20px rgba(11,31,58,0.06);
+        }
+        .stat-box h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 0.25rem;
+        }
+        .badge-categoria {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: rgba(201,168,76,0.12);
+            color: var(--primary);
+            border: 1px solid rgba(201,168,76,0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══ Navbar ══ -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary">
+                <img src="img/logo.png" alt="Harrow School" height="45" class="me-2">Harrow School
+            </h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Inicio</a>
+                <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                <a href="cursos.html" class="nav-item nav-link">Áreas</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Más</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="equipo.html" class="dropdown-item">Nuestro Equipo</a>
+                        <a href="admision.html" class="dropdown-item">Admisión</a>
+                        <a href="testimonial.html" class="dropdown-item active">Testimonios</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contacto</a>
+            </div>
+            <a href="admision.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">
+                Matrícula 2026 <i class="fa fa-arrow-right ms-3"></i>
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- ══ Page Header ══ -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white animated slideInDown">Testimonios</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Testimonios</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- ══ Estadísticas de satisfacción ══ -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Nuestra Comunidad</h6>
+                <h1 class="mb-2">Lo que dicen nuestras familias</h1>
+                <p class="mb-5 mx-auto" style="max-width: 600px; color: #6c757d;">
+                    La satisfacción de nuestras familias es el mejor reflejo de nuestro 
+                    compromiso con la excelencia educativa. Conoce las experiencias de 
+                    quienes ya son parte de la comunidad Harrow School.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-box">
+                        <h2>98%</h2>
+                        <p class="text-muted mb-0 small">Padres satisfechos</p>
+                        <div class="star-rating mt-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-box">
+                        <h2>50+</h2>
+                        <p class="text-muted mb-0 small">Familias en nuestra comunidad</p>
+                        <div class="star-rating mt-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-box">
+                        <h2>100%</h2>
+                        <p class="text-muted mb-0 small">Recomendarían Harrow</p>
+                        <div class="star-rating mt-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="stat-box">
+                        <h2>4.9</h2>
+                        <p class="text-muted mb-0 small">Calificación promedio</p>
+                        <div class="star-rating mt-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══ Testimonios — Padres de familia ══ -->
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-light text-center text-primary px-3">Padres de Familia</h6>
+                <h1 class="mb-5">Opiniones de nuestros apoderados</h1>
+            </div>
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Madre de familia</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            La formación que recibe mi hijo en Harrow School es excepcional. 
+                            Los docentes están completamente comprometidos y el sistema digital 
+                            nos permite ver las notas en tiempo real desde el celular. 
+                            Estoy muy contenta con la elección.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">MT</div>
+                            <div>
+                                <h6 class="mb-0">María Torres Valverde</h6>
+                                <small class="text-muted">Madre de familia · 2° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Padre de familia</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            Gracias al programa de becas, mi hija pudo ingresar a Harrow School. 
+                            El nivel académico es muy alto y el ambiente es de respeto y disciplina. 
+                            Lo recomiendo ampliamente a todas las familias de Nuevo Chimbote.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">JR</div>
+                            <div>
+                                <h6 class="mb-0">Jorge Rodríguez Pérez</h6>
+                                <small class="text-muted">Padre de familia · 4° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Madre de familia</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            Lo que más valoro es la digitalización completa del colegio. 
+                            Puedo consultar calificaciones, historial de pagos y comunicarme 
+                            con los docentes desde mi celular en cualquier momento. Es muy práctico 
+                            y moderno para un colegio privado.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">LC</div>
+                            <div>
+                                <h6 class="mb-0">Lorena Castillo Ríos</h6>
+                                <small class="text-muted">Madre de familia · 1° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Apoderado</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            Desde que mi sobrino ingresó a Harrow School notamos un cambio 
+                            enorme en su actitud hacia el estudio. Los profesores son muy 
+                            dedicados y el ambiente entre compañeros es excelente. 
+                            Sin duda la mejor decisión que tomamos.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">RP</div>
+                            <div>
+                                <h6 class="mb-0">Rosa Paredes Núñez</h6>
+                                <small class="text-muted">Apoderada · 3° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Padre de familia</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            El proceso de matrícula fue muy sencillo y organizado. El personal 
+                            administrativo nos orientó en cada paso y resolvió todas nuestras 
+                            dudas. Se nota que la institución está bien gestionada y tiene 
+                            vocación de servicio.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">CM</div>
+                            <div>
+                                <h6 class="mb-0">Carlos Mendoza Soto</h6>
+                                <small class="text-muted">Padre de familia · 5° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Madre de familia</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            Mi hijo mejoró mucho en Matemática y Comunicación desde que está 
+                            en Harrow School. Los profesores hacen seguimiento personalizado 
+                            a cada alumno y nos avisan a tiempo cuando hay algo que reforzar. 
+                            Eso marca la diferencia.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">AV</div>
+                            <div>
+                                <h6 class="mb-0">Ana Villareal Castro</h6>
+                                <small class="text-muted">Madre de familia · 1° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══ Testimonios — Alumnos ══ -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Alumnos</h6>
+                <h1 class="mb-5">Voz de nuestros estudiantes</h1>
+            </div>
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Alumno · Secundaria</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            Harrow School me ha dado las herramientas para crecer académicamente. 
+                            Los profesores siempre están dispuestos a ayudar y el ambiente 
+                            entre compañeros es muy motivador. Me siento bien en este colegio.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">LG</div>
+                            <div>
+                                <h6 class="mb-0">Luis García Flores</h6>
+                                <small class="text-muted">Alumna · 3° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Alumna · Secundaria</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            Me encanta el área de Inglés y Computación. Los profesores 
+                            hacen las clases dinámicas y se aprende de verdad. 
+                            Desde que entré a Harrow mejoré mucho mis notas y tengo 
+                            más confianza en mí misma.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">SP</div>
+                            <div>
+                                <h6 class="mb-0">Sofía Paredes Lozano</h6>
+                                <small class="text-muted">Alumna · 4° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card h-100">
+                        <div class="quote-icon">"</div>
+                        <div class="star-rating mb-3">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="badge-categoria mb-3 d-inline-block">Alumno · Secundaria</span>
+                        <p class="text-muted mt-2" style="font-style: italic; line-height: 1.75;">
+                            El colegio tiene un muy buen ambiente. Los profes son exigentes 
+                            pero justos y siempre explican bien. Me gustó mucho el sistema 
+                            donde mis papás pueden ver mis notas porque me ayuda a 
+                            mantenerme al día con mis estudios.
+                        </p>
+                        <div class="d-flex align-items-center gap-3 mt-3 pt-3 border-top">
+                            <div class="avatar-initials">DR</div>
+                            <div>
+                                <h6 class="mb-0">Diego Ramos Chávez</h6>
+                                <small class="text-muted">Alumno · 5° Secundaria</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══ Testimonios destacados (estático) ══ -->
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h6 class="section-title bg-light text-center text-primary px-3">Destacados</h6>
+                <h1>Testimonios destacados</h1>
+            </div>
+            <div class="row g-4">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="testimonial-item text-center bg-white rounded p-4 h-100">
+                        <img class="border rounded-circle p-2 mx-auto mb-3"
+                            src="img/testimonial-1.jpg"
+                            style="width: 80px; height: 80px; object-fit: cover;" alt="María Torres">
+                        <h5 class="mb-0">María Torres</h5>
+                        <p class="text-primary mb-1 small">Madre de familia · 2° Secundaria</p>
+                        <div class="star-rating mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0 fst-italic text-muted small">Los docentes están comprometidos y el sistema digital nos permite ver las notas en tiempo real. Estoy muy satisfecha con Harrow School.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="testimonial-item text-center bg-white rounded p-4 h-100">
+                        <img class="border rounded-circle p-2 mx-auto mb-3"
+                            src="img/testimonial-2.jpg"
+                            style="width: 80px; height: 80px; object-fit: cover;" alt="Jorge Rodríguez">
+                        <h5 class="mb-0">Jorge Rodríguez</h5>
+                        <p class="text-primary mb-1 small">Padre de familia · 4° Secundaria</p>
+                        <div class="star-rating mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0 fst-italic text-muted small">Gracias al programa de becas mi hija ingresó. El nivel académico es alto y el ambiente de disciplina es ejemplar. Lo recomiendo.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="testimonial-item text-center bg-white rounded p-4 h-100">
+                        <img class="border rounded-circle p-2 mx-auto mb-3"
+                            src="img/testimonial-3.jpg"
+                            style="width: 80px; height: 80px; object-fit: cover;" alt="Luis García">
+                        <h5 class="mb-0">Luis García</h5>
+                        <p class="text-primary mb-1 small">Alumno · 4° Secundaria</p>
+                        <div class="star-rating mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0 fst-italic text-muted small">Harrow me ha dado las herramientas para crecer. Los profesores siempre están dispuestos a ayudar y el ambiente es muy motivador.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="testimonial-item text-center bg-white rounded p-4 h-100">
+                        <img class="border rounded-circle p-2 mx-auto mb-3"
+                            src="img/testimonial-4.jpg"
+                            style="width: 80px; height: 80px; object-fit: cover;" alt="Lorena Castillo">
+                        <h5 class="mb-0">Lorena Castillo</h5>
+                        <p class="text-primary mb-1 small">Alumna · 3° Secundaria</p>
+                        <div class="star-rating mb-2">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0 fst-italic text-muted small">Puedo consultar calificaciones y pagos desde mi celular en cualquier momento. Es muy práctico y moderno para un colegio privado.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══ CTA ══ -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="bg-primary text-center rounded p-5">
+                <h1 class="text-white mb-3">¿Quieres ser parte de nuestra comunidad?</h1>
+                <p class="text-white-50 mb-4">
+                    Únete a las familias que ya confían en Harrow School S.A.C. 
+                    Matrículas 2026 abiertas con plazas limitadas.
+                </p>
+                <a href="admision.html" class="btn btn-light py-3 px-5 me-3">
+                    <i class="fa fa-arrow-right me-2"></i>Iniciar Admisión
+                </a>
+                <a href="contact.html" class="btn btn-outline-light py-3 px-5">
+                    <i class="fa fa-envelope me-2"></i>Contáctanos
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ══ Footer ══ -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">
+                        <i class="fa fa-shield-alt text-primary me-2"></i>Harrow School
+                    </h4>
+                    <p class="mb-3" style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+                        Institución educativa privada comprometida con la excelencia académica y el
+                        desarrollo integral de cada estudiante. Nuevo Chimbote, Áncash – Perú.
+                    </p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/harrowbangkok/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/harrow.school/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@aislharrowschools" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://wa.me/51937266321" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Enlaces Rápidos</h4>
+                    <a class="btn btn-link" href="index.html">Inicio</a>
+                    <a class="btn btn-link" href="about.html">Nosotros</a>
+                    <a class="btn btn-link" href="cursos.html">Áreas Académicas</a>
+                    <a class="btn btn-link" href="equipo.html">Nuestro Equipo</a>
+                    <a class="btn btn-link" href="admision.html">Admisión 2026</a>
+                    <a class="btn btn-link" href="contact.html">Contacto</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contacto</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Nuevo Chimbote, Áncash, Perú</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+51 937 266 321</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>admisiones@harrowschool.edu.pe</p>
+                    <p class="mb-2"><i class="fa fa-clock me-3"></i>Lun – Vie: 8:00am – 5:00pm</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Matrícula 2026</h4>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">
+                        El año escolar 2026 está activo. Plazas limitadas. ¡Asegura el lugar de tu hijo!
+                    </p>
+                    <a href="admision.html" class="btn btn-primary w-100 py-2 mt-2">
+                        <i class="fa fa-arrow-right me-2"></i>Solicitar Matrícula
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-light w-100 py-2 mt-2">
+                        <i class="fa fa-envelope me-2"></i>Contáctanos
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; 2026 <a class="border-bottom" href="index.html">Harrow School S.A.C.</a> — Todos los derechos reservados.
+                        <br><small style="color: rgba(255,255,255,0.4);">Desarrollado por Grupo 1 · SENATI Nuevo Chimbote</small>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="index.html">Inicio</a>
+                            <a href="about.html">Nosotros</a>
+                            <a href="contact.html">Contacto</a>
+                            <a href="admision.html">Matrícula</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solo Bootstrap (menú responsive); sin jQuery ni main.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
