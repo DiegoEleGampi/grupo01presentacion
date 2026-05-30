@@ -1,0 +1,273 @@
+/* ══ Harrow School — Dark Mode CSS ══ */
+
+body.dark-mode {
+    background-color: #0f1923 !important;
+    color: #e0d9cc !important;
+}
+
+/* Navbar */
+body.dark-mode .navbar {
+    background-color: #0B1F3A !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,.5) !important;
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link {
+    color: #e0d9cc !important;
+}
+
+body.dark-mode .navbar-light .navbar-nav .nav-link:hover,
+body.dark-mode .navbar-light .navbar-nav .nav-link.active {
+    color: #C9A84C !important;
+}
+
+body.dark-mode .navbar-brand h2 {
+    color: #C9A84C !important;
+}
+
+body.dark-mode .navbar-toggler {
+    border-color: rgba(201,168,76,.5) !important;
+}
+
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Dropdown */
+body.dark-mode .dropdown-menu {
+    background-color: #0B1F3A !important;
+    border-color: #C9A84C !important;
+}
+
+body.dark-mode .dropdown-item {
+    color: #e0d9cc !important;
+}
+
+body.dark-mode .dropdown-item:hover {
+    background-color: #C9A84C !important;
+    color: #0B1F3A !important;
+}
+
+/* Secciones blancas */
+body.dark-mode .container-xxl,
+body.dark-mode .container-fluid:not(.footer):not(.page-header) {
+    background-color: #0f1923 !important;
+}
+
+/* bg-light */
+body.dark-mode .bg-light {
+    background-color: #162130 !important;
+}
+
+/* Textos */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #e0d9cc !important;
+}
+
+body.dark-mode p,
+body.dark-mode small,
+body.dark-mode span {
+    color: #b0a898 !important;
+}
+
+body.dark-mode .text-muted {
+    color: #8a8070 !important;
+}
+
+/* Section title fondo */
+body.dark-mode .section-title.bg-white {
+    background-color: #0f1923 !important;
+}
+
+body.dark-mode .section-title.bg-light {
+    background-color: #162130 !important;
+}
+
+/* Service items */
+body.dark-mode .service-item {
+    background-color: #162130 !important;
+    border-top-color: #C9A84C !important;
+}
+
+body.dark-mode .service-item h5,
+body.dark-mode .service-item p {
+    color: #e0d9cc !important;
+}
+
+/* Course items */
+body.dark-mode .course-item {
+    background-color: #162130 !important;
+}
+
+body.dark-mode .course-item h5 {
+    color: #e0d9cc !important;
+}
+
+body.dark-mode .course-item .border-top {
+    border-color: #2a3a4a !important;
+}
+
+/* Team items */
+body.dark-mode .team-item {
+    background-color: #162130 !important;
+}
+
+body.dark-mode .team-item h5,
+body.dark-mode .team-item small {
+    color: #e0d9cc !important;
+}
+
+body.dark-mode .team-item .bg-light {
+    background-color: #162130 !important;
+}
+
+/* Testimonios */
+body.dark-mode .testimonial-text {
+    background-color: #162130 !important;
+}
+
+body.dark-mode .testimonial-text p {
+    color: #e0d9cc !important;
+}
+
+body.dark-mode .testimonial-carousel::before {
+    background: linear-gradient(to right, #0f1923 0%, rgba(15,25,35,0) 100%) !important;
+}
+
+body.dark-mode .testimonial-carousel::after {
+    background: linear-gradient(to left, #0f1923 0%, rgba(15,25,35,0) 100%) !important;
+}
+
+/* Category badges */
+body.dark-mode .bg-white {
+    background-color: #162130 !important;
+}
+
+body.dark-mode .bg-white h5,
+body.dark-mode .bg-white small {
+    color: #e0d9cc !important;
+}
+
+/* Formularios */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #162130 !important;
+    border-color: #2a3a4a !important;
+    color: #e0d9cc !important;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #1a2b3c !important;
+    border-color: #C9A84C !important;
+    color: #e0d9cc !important;
+    box-shadow: 0 0 0 .25rem rgba(201,168,76,.25) !important;
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #6a7a8a !important;
+}
+
+body.dark-mode .form-floating label {
+    color: #8a9aaa !important;
+}
+
+body.dark-mode .form-text {
+    color: #7a8a9a !important;
+}
+
+/* Cards y boxes */
+body.dark-mode .bg-white.rounded,
+body.dark-mode .shadow-sm {
+    background-color: #162130 !important;
+}
+
+/* Borders */
+body.dark-mode .border-top,
+body.dark-mode .border-bottom,
+body.dark-mode .border {
+    border-color: #2a3a4a !important;
+}
+
+/* Spinner */
+body.dark-mode #spinner {
+    background-color: #0f1923 !important;
+}
+
+/* Botón dark mode en navbar */
+#btnDarkMode {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #C9A84C;
+    background: transparent;
+    color: #C9A84C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+#btnDarkMode:hover {
+    background: #C9A84C;
+    color: #0B1F3A;
+}
+
+body.dark-mode #btnDarkMode {
+    border-color: #C9A84C;
+    color: #C9A84C;
+}
+
+/* Timeline calendario en dark */
+body.dark-mode .tl-card {
+    background-color: #162130 !important;
+}
+
+body.dark-mode .tl-date {
+    color: #6a7a8a !important;
+}
+
+body.dark-mode .tl-title {
+    color: #e0d9cc !important;
+}
+
+body.dark-mode .tl-desc {
+    color: #b0a898 !important;
+}
+
+body.dark-mode .mes-sep {
+    color: #4a5a6a !important;
+}
+
+body.dark-mode .mes-sep::before,
+body.dark-mode .mes-sep::after {
+    background: #2a3a4a !important;
+}
+
+body.dark-mode .stat-mini {
+    background-color: #162130 !important;
+}
+
+body.dark-mode .feriado-row {
+    border-color: #2a3a4a !important;
+}
+
+/* Alert */
+body.dark-mode .alert-success {
+    background-color: #0a2a1a !important;
+    border-color: #1a5a3a !important;
+    color: #4a9a6a !important;
+}
+
+body.dark-mode .alert-danger {
+    background-color: #2a0a0a !important;
+    border-color: #5a1a1a !important;
+    color: #9a4a4a !important;
+}

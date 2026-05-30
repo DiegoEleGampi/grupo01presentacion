@@ -17,141 +17,8 @@
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-    <style>
-        /* ── Bimestre Cards ── */
-        .bim-card {
-            border-radius: 16px;
-            padding: 24px 16px;
-            text-align: center;
-            color: #fff;
-            transition: transform .25s, box-shadow .25s;
-            box-shadow: 0 6px 20px rgba(0,0,0,.15);
-        }
-        .bim-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,.2); }
-        .bim-card.b1 { background: linear-gradient(135deg, #1565c0, #42a5f5); }
-        .bim-card.b2 { background: linear-gradient(135deg, #2e7d32, #66bb6a); }
-        .bim-card.b3 { background: linear-gradient(135deg, #e65100, #ffa726); }
-        .bim-card.b4 { background: linear-gradient(135deg, #880e4f, #ec407a); }
-        .bim-card .bim-num { font-size: 2.4rem; font-weight: 800; line-height: 1; margin-bottom: 8px; }
-        .bim-card h5 { font-size: 1rem; margin-bottom: 4px; opacity: .95; font-weight: 700; }
-        .bim-card p  { font-size: 0.78rem; margin: 0; opacity: .8; }
-
-        /* ── Filtros ── */
-        .filter-btn {
-            border: 2px solid transparent;
-            border-radius: 30px;
-            padding: 6px 18px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all .2s;
-            background: #f0f0f0;
-            color: #555;
-        }
-        .filter-btn:hover, .filter-btn.active { color: #fff; border-color: transparent; }
-        .filter-btn.active.all      { background: #333; }
-        .filter-btn.active.b1       { background: #1565c0; }
-        .filter-btn.active.b2       { background: #2e7d32; }
-        .filter-btn.active.b3       { background: #e65100; }
-        .filter-btn.active.b4       { background: #880e4f; }
-        .filter-btn.active.feriado  { background: #6a1ab0; }
-        .filter-btn.active.evento   { background: #0a5fa0; }
-        .filter-btn.active.vacacion { background: #0a7a3a; }
-        .filter-btn.active.examen   { background: #a04a0a; }
-
-        /* ── Timeline ── */
-        .timeline { position: relative; }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 28px;
-            top: 0; bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #1565c0, #2e7d32, #e65100, #880e4f);
-            border-radius: 3px;
-        }
-        .tl-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            margin-bottom: 20px;
-            position: relative;
-            transition: opacity .3s;
-        }
-        .tl-item.hidden { display: none; }
-
-        .tl-icon {
-            flex-shrink: 0;
-            width: 56px; height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 4px 14px rgba(0,0,0,.18);
-        }
-        .tl-icon.b1       { background: #1565c0; color: #fff; }
-        .tl-icon.b2       { background: #2e7d32; color: #fff; }
-        .tl-icon.b3       { background: #e65100; color: #fff; }
-        .tl-icon.b4       { background: #880e4f; color: #fff; }
-        .tl-icon.feriado  { background: #6a1ab0; color: #fff; }
-        .tl-icon.evento   { background: #0a5fa0; color: #fff; }
-        .tl-icon.vacacion { background: #0a7a3a; color: #fff; }
-        .tl-icon.examen   { background: #a04a0a; color: #fff; }
-
-        .tl-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 14px 18px;
-            flex: 1;
-            box-shadow: 0 2px 12px rgba(0,0,0,.08);
-            border-left: 4px solid transparent;
-            transition: transform .2s, box-shadow .2s;
-        }
-        .tl-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.13); }
-        .tl-card.b1       { border-color: #1565c0; }
-        .tl-card.b2       { border-color: #2e7d32; }
-        .tl-card.b3       { border-color: #e65100; }
-        .tl-card.b4       { border-color: #880e4f; }
-        .tl-card.feriado  { border-color: #6a1ab0; }
-        .tl-card.evento   { border-color: #0a5fa0; }
-        .tl-card.vacacion { border-color: #0a7a3a; }
-        .tl-card.examen   { border-color: #a04a0a; }
-
-        .tl-date  { font-size: 0.75rem; color: #aaa; font-weight: 700; margin-bottom: 2px; text-transform: uppercase; letter-spacing: .04em; }
-        .tl-title { font-size: 0.97rem; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
-        .tl-desc  { font-size: 0.83rem; color: #666; margin: 0; line-height: 1.5; }
-
-        /* ── Sidebar sticky ── */
-        .sidebar-sticky { position: sticky; top: 80px; }
-
-        /* ── Leyenda ── */
-        .leyenda-item { display: flex; align-items: center; gap: 10px; font-size: 0.83rem; color: #555; padding: 5px 0; }
-        .leyenda-dot  { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
-
-        /* ── Feriados lista ── */
-        .feriado-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.82rem; }
-        .feriado-row:last-child { border-bottom: none; }
-        .feriado-date { font-weight: 700; color: #6a1ab0; white-space: nowrap; margin-right: 8px; }
-
-        /* ── Contador animado ── */
-        .stat-mini { text-align: center; padding: 12px; border-radius: 10px; background: #f8f9fa; }
-        .stat-mini .num { font-size: 1.6rem; font-weight: 800; line-height: 1; }
-        .stat-mini .lbl { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: .05em; }
-
-        /* ── Mes separador ── */
-        .mes-sep {
-            display: flex; align-items: center; gap: 12px;
-            margin: 28px 0 18px;
-            font-size: 0.75rem; font-weight: 800;
-            text-transform: uppercase; letter-spacing: .1em;
-            color: #bbb;
-        }
-        .mes-sep::before, .mes-sep::after { content:''; flex:1; height:1px; background:#e0e0e0; }
-    </style>
+    <link href="css/darkmode.css" rel="stylesheet">
+    <link href="css/calendario.css" rel="stylesheet">
 </head>
 
 <body>
@@ -189,6 +56,9 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contacto</a>
             </div>
+            <button id="btnDarkMode" title="Cambiar apariencia" class="me-3">
+                <i class="fa fa-moon" id="iconDarkMode"></i>
+            </button>
             <a href="admision.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">
                 Matrícula 2026 <i class="fa fa-arrow-right ms-3"></i>
             </a>
@@ -712,40 +582,7 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="js/main.js"></script>
-
-    <script>
-        function filtrar(tipo, btn) {
-            // Actualizar botones
-            document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('active', 'all','b1','b2','b3','b4','feriado','evento','vacacion','examen');
-            });
-            btn.classList.add('active', tipo);
-
-            // Mostrar/ocultar items
-            document.querySelectorAll('.tl-item').forEach(item => {
-                if (tipo === 'all' || item.dataset.tipo === tipo) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
-
-            // Mostrar/ocultar separadores de mes
-            document.querySelectorAll('.mes-sep').forEach(sep => {
-                // Buscar el siguiente item visible
-                let next = sep.nextElementSibling;
-                let visible = false;
-                while (next && !next.classList.contains('mes-sep')) {
-                    if (next.classList.contains('tl-item') && !next.classList.contains('hidden')) {
-                        visible = true;
-                        break;
-                    }
-                    next = next.nextElementSibling;
-                }
-                sep.style.display = visible ? '' : 'none';
-            });
-        }
-    </script>
-
+    <script src="js/calendario.js"></script>
+    <script src="js/darkmode.js"></script>
 </body>
 </html>
