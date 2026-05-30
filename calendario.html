@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Harrow School — Calendario Académico 2026</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="calendario académico, Harrow School, 2026, bimestres, feriados Perú" name="keywords">
+    <meta content="Calendario Académico 2026 de Harrow School S.A.C. — Fechas importantes, bimestres, feriados y eventos escolares." name="description">
+
+    <link href="img/logo.png" rel="icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* ── Bimestre Cards ── */
+        .bim-card {
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            color: #fff;
+            transition: transform .25s, box-shadow .25s;
+            box-shadow: 0 6px 20px rgba(0,0,0,.15);
+        }
+        .bim-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,.2); }
+        .bim-card.b1 { background: linear-gradient(135deg, #1565c0, #42a5f5); }
+        .bim-card.b2 { background: linear-gradient(135deg, #2e7d32, #66bb6a); }
+        .bim-card.b3 { background: linear-gradient(135deg, #e65100, #ffa726); }
+        .bim-card.b4 { background: linear-gradient(135deg, #880e4f, #ec407a); }
+        .bim-card .bim-num { font-size: 2.4rem; font-weight: 800; line-height: 1; margin-bottom: 8px; }
+        .bim-card h5 { font-size: 1rem; margin-bottom: 4px; opacity: .95; font-weight: 700; }
+        .bim-card p  { font-size: 0.78rem; margin: 0; opacity: .8; }
+
+        /* ── Filtros ── */
+        .filter-btn {
+            border: 2px solid transparent;
+            border-radius: 30px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .2s;
+            background: #f0f0f0;
+            color: #555;
+        }
+        .filter-btn:hover, .filter-btn.active { color: #fff; border-color: transparent; }
+        .filter-btn.active.all      { background: #333; }
+        .filter-btn.active.b1       { background: #1565c0; }
+        .filter-btn.active.b2       { background: #2e7d32; }
+        .filter-btn.active.b3       { background: #e65100; }
+        .filter-btn.active.b4       { background: #880e4f; }
+        .filter-btn.active.feriado  { background: #6a1ab0; }
+        .filter-btn.active.evento   { background: #0a5fa0; }
+        .filter-btn.active.vacacion { background: #0a7a3a; }
+        .filter-btn.active.examen   { background: #a04a0a; }
+
+        /* ── Timeline ── */
+        .timeline { position: relative; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #1565c0, #2e7d32, #e65100, #880e4f);
+            border-radius: 3px;
+        }
+        .tl-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            transition: opacity .3s;
+        }
+        .tl-item.hidden { display: none; }
+
+        .tl-icon {
+            flex-shrink: 0;
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 4px 14px rgba(0,0,0,.18);
+        }
+        .tl-icon.b1       { background: #1565c0; color: #fff; }
+        .tl-icon.b2       { background: #2e7d32; color: #fff; }
+        .tl-icon.b3       { background: #e65100; color: #fff; }
+        .tl-icon.b4       { background: #880e4f; color: #fff; }
+        .tl-icon.feriado  { background: #6a1ab0; color: #fff; }
+        .tl-icon.evento   { background: #0a5fa0; color: #fff; }
+        .tl-icon.vacacion { background: #0a7a3a; color: #fff; }
+        .tl-icon.examen   { background: #a04a0a; color: #fff; }
+
+        .tl-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 18px;
+            flex: 1;
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+            border-left: 4px solid transparent;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .tl-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.13); }
+        .tl-card.b1       { border-color: #1565c0; }
+        .tl-card.b2       { border-color: #2e7d32; }
+        .tl-card.b3       { border-color: #e65100; }
+        .tl-card.b4       { border-color: #880e4f; }
+        .tl-card.feriado  { border-color: #6a1ab0; }
+        .tl-card.evento   { border-color: #0a5fa0; }
+        .tl-card.vacacion { border-color: #0a7a3a; }
+        .tl-card.examen   { border-color: #a04a0a; }
+
+        .tl-date  { font-size: 0.75rem; color: #aaa; font-weight: 700; margin-bottom: 2px; text-transform: uppercase; letter-spacing: .04em; }
+        .tl-title { font-size: 0.97rem; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+        .tl-desc  { font-size: 0.83rem; color: #666; margin: 0; line-height: 1.5; }
+
+        /* ── Sidebar sticky ── */
+        .sidebar-sticky { position: sticky; top: 80px; }
+
+        /* ── Leyenda ── */
+        .leyenda-item { display: flex; align-items: center; gap: 10px; font-size: 0.83rem; color: #555; padding: 5px 0; }
+        .leyenda-dot  { width: 13px; height: 13px; border-radius: 50%; flex-shrink: 0; }
+
+        /* ── Feriados lista ── */
+        .feriado-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.82rem; }
+        .feriado-row:last-child { border-bottom: none; }
+        .feriado-date { font-weight: 700; color: #6a1ab0; white-space: nowrap; margin-right: 8px; }
+
+        /* ── Contador animado ── */
+        .stat-mini { text-align: center; padding: 12px; border-radius: 10px; background: #f8f9fa; }
+        .stat-mini .num { font-size: 1.6rem; font-weight: 800; line-height: 1; }
+        .stat-mini .lbl { font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: .05em; }
+
+        /* ── Mes separador ── */
+        .mes-sep {
+            display: flex; align-items: center; gap: 12px;
+            margin: 28px 0 18px;
+            font-size: 0.75rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: .1em;
+            color: #bbb;
+        }
+        .mes-sep::before, .mes-sep::after { content:''; flex:1; height:1px; background:#e0e0e0; }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width:3rem;height:3rem;" role="status">
+            <span class="sr-only">Cargando...</span>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary">
+                <img src="img/logo.png" alt="Harrow School" height="45" class="me-2">Harrow School
+            </h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Inicio</a>
+                <a href="about.html" class="nav-item nav-link">Nosotros</a>
+                <a href="cursos.html" class="nav-item nav-link">Áreas</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Más</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="equipo.html" class="dropdown-item">Nuestro Equipo</a>
+                        <a href="admision.html" class="dropdown-item">Admisión</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonios</a>
+                        <a href="calendario.html" class="dropdown-item active">Calendario 2026</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contacto</a>
+            </div>
+            <a href="admision.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">
+                Matrícula 2026 <i class="fa fa-arrow-right ms-3"></i>
+            </a>
+        </div>
+    </nav>
+
+<!-- ══ Carousel Hero — Calendario 2026 ══ -->
+<div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel position-relative" style="overflow:hidden;">
+        <div class="owl-carousel-item position-relative" style="height:600px;">
+            <img src="img/carousel-7.jpg" alt="Calendario Académico Harrow School" style="width:100%;height:600px;object-fit:cover;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(11, 31, 58, .82);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">
+                                Año Escolar · Harrow School 2026
+                            </h5>
+                            <h1 class="display-3 text-white animated slideInDown">
+                                Calendario Académico 2026
+                            </h1>
+                            <p class="fs-5 text-white mb-4 pb-2">
+                                Consulta todas las fechas importantes, bimestres, feriados 
+                                y eventos del año escolar 2026.
+                            </p>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a class="text-white" href="index.html">Inicio</a></li>
+                                    <li class="breadcrumb-item text-white active" aria-current="page">Calendario 2026</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Bimestres -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Año Escolar</h6>
+                <h1 class="mb-2">Organización por Bimestres</h1>
+                <p class="mb-5 text-muted mx-auto" style="max-width:600px;">
+                    El año escolar 2026 se divide en cuatro bimestres de evaluación, siguiendo el calendario oficial del Ministerio de Educación del Perú.
+                </p>
+            </div>
+
+            <!-- Estadísticas rápidas -->
+            <div class="row g-3 mb-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-6 col-md-3">
+                    <div class="stat-mini"><div class="num text-primary">4</div><div class="lbl">Bimestres</div></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-mini"><div class="num" style="color:#6a1ab0;">11</div><div class="lbl">Feriados</div></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-mini"><div class="num" style="color:#0a5fa0;">8</div><div class="lbl">Eventos</div></div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-mini"><div class="num" style="color:#a04a0a;">4</div><div class="lbl">Exámenes</div></div>
+                </div>
+            </div>
+
+            <div class="row g-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bim-card b1">
+                        <div class="bim-num">I</div>
+                        <h5>Primer Bimestre</h5>
+                        <p>12 Mar — 22 May 2026</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bim-card b2">
+                        <div class="bim-num">II</div>
+                        <h5>Segundo Bimestre</h5>
+                        <p>01 Jun — 07 Ago 2026</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bim-card b3">
+                        <div class="bim-num">III</div>
+                        <h5>Tercer Bimestre</h5>
+                        <p>24 Ago — 23 Oct 2026</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="bim-card b4">
+                        <div class="bim-num">IV</div>
+                        <h5>Cuarto Bimestre</h5>
+                        <p>02 Nov — 18 Dic 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline + Sidebar -->
+    <div class="container-xxl py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Timeline -->
+                <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="section-title bg-light text-start text-primary pe-3">Cronograma</h6>
+                    <h1 class="mb-3">Fechas Importantes 2026</h1>
+
+                    <!-- Filtros -->
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <button class="filter-btn active all" onclick="filtrar('all', this)">Todos</button>
+                        <button class="filter-btn" onclick="filtrar('b1', this)" style="--c:#1565c0">I Bimestre</button>
+                        <button class="filter-btn" onclick="filtrar('b2', this)">II Bimestre</button>
+                        <button class="filter-btn" onclick="filtrar('b3', this)">III Bimestre</button>
+                        <button class="filter-btn" onclick="filtrar('b4', this)">IV Bimestre</button>
+                        <button class="filter-btn" onclick="filtrar('feriado', this)">Feriados</button>
+                        <button class="filter-btn" onclick="filtrar('evento', this)">Eventos</button>
+                        <button class="filter-btn" onclick="filtrar('vacacion', this)">Vacaciones</button>
+                        <button class="filter-btn" onclick="filtrar('examen', this)">Exámenes</button>
+                    </div>
+
+                    <div class="timeline" id="timeline">
+
+                        <div class="mes-sep">Marzo</div>
+
+                        <div class="tl-item" data-tipo="b1">
+                            <div class="tl-icon b1"><i class="fa fa-flag"></i></div>
+                            <div class="tl-card b1">
+                                <div class="tl-date">Jueves 12 de Marzo</div>
+                                <div class="tl-title">🎒 Inicio del Año Escolar 2026</div>
+                                <p class="tl-desc">Inicio oficial del primer bimestre. Bienvenida a todos los estudiantes de primaria y secundaria.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Abril</div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-church"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Jueves y Viernes 02 – 03 de Abril</div>
+                                <div class="tl-title">✝️ Semana Santa — Feriado Nacional</div>
+                                <p class="tl-desc">Jueves Santo y Viernes Santo. No hay clases. Feriado nacional según calendario peruano.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-book"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Viernes 24 de Abril</div>
+                                <div class="tl-title">📚 Día del Idioma Español</div>
+                                <p class="tl-desc">Actividades institucionales en el área de Comunicación en conmemoración del Día del Idioma.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Mayo</div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-hard-hat"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Viernes 01 de Mayo</div>
+                                <div class="tl-title">👷 Día del Trabajo — Feriado Nacional</div>
+                                <p class="tl-desc">Feriado nacional. No hay clases.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-female"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Domingo 10 de Mayo</div>
+                                <div class="tl-title">💐 Día de la Madre — Actividad Escolar</div>
+                                <p class="tl-desc">Actuación especial y compartir en honor a las madres de familia. Participación de todos los grados.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="examen">
+                            <div class="tl-icon examen"><i class="fa fa-pencil-alt"></i></div>
+                            <div class="tl-card examen">
+                                <div class="tl-date">18 – 22 de Mayo</div>
+                                <div class="tl-title">📝 Exámenes Finales — I Bimestre</div>
+                                <p class="tl-desc">Evaluaciones finales del primer bimestre en todas las áreas académicas.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="vacacion">
+                            <div class="tl-icon vacacion"><i class="fa fa-umbrella-beach"></i></div>
+                            <div class="tl-card vacacion">
+                                <div class="tl-date">25 – 29 de Mayo</div>
+                                <div class="tl-title">🏖️ Vacaciones — I Bimestre</div>
+                                <p class="tl-desc">Periodo de descanso entre el primer y segundo bimestre.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Junio</div>
+
+                        <div class="tl-item" data-tipo="b2">
+                            <div class="tl-icon b2"><i class="fa fa-play"></i></div>
+                            <div class="tl-card b2">
+                                <div class="tl-date">Lunes 01 de Junio</div>
+                                <div class="tl-title">🟢 Inicio del II Bimestre</div>
+                                <p class="tl-desc">Inicio del segundo bimestre académico.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-male"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Viernes 21 de Junio</div>
+                                <div class="tl-title">👨 Día del Padre — Actividad Escolar</div>
+                                <p class="tl-desc">Actuación y compartir especial en honor a los padres de familia de la institución.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-landmark"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Domingo 28 de Junio</div>
+                                <div class="tl-title">🇵🇪 San Pedro y San Pablo — Feriado</div>
+                                <p class="tl-desc">Feriado nacional. No hay clases.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Julio</div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-drum"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Sábado 28 - 29 de Julio</div>
+                                <div class="tl-title">🥁 Desfile Escolar — Fiestas Patrias</div>
+                                <p class="tl-desc">Participación institucional en el desfile cívico-escolar por Fiestas Patrias. Obligatorio para todos los grados.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-flag"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Martes y Miércoles 28 – 29 de Julio</div>
+                                <div class="tl-title">🇵🇪 Fiestas Patrias — Feriado Nacional</div>
+                                <p class="tl-desc">Día de la Independencia del Perú. No hay clases.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Agosto</div>
+
+                        <div class="tl-item" data-tipo="examen">
+                            <div class="tl-icon examen"><i class="fa fa-pencil-alt"></i></div>
+                            <div class="tl-card examen">
+                                <div class="tl-date">03 – 07 de Agosto</div>
+                                <div class="tl-title">📝 Exámenes Finales — II Bimestre</div>
+                                <p class="tl-desc">Evaluaciones finales del segundo bimestre en todas las áreas académicas.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="vacacion">
+                            <div class="tl-icon vacacion"><i class="fa fa-umbrella-beach"></i></div>
+                            <div class="tl-card vacacion">
+                                <div class="tl-date">10 – 21 de Agosto</div>
+                                <div class="tl-title">🏖️ Vacaciones de Medio Año</div>
+                                <p class="tl-desc">Vacaciones de mitad de año. Periodo de descanso entre el segundo y tercer bimestre.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="b3">
+                            <div class="tl-icon b3"><i class="fa fa-play"></i></div>
+                            <div class="tl-card b3">
+                                <div class="tl-date">Lunes 24 de Agosto</div>
+                                <div class="tl-title">🟠 Inicio del III Bimestre</div>
+                                <p class="tl-desc">Inicio del tercer bimestre académico.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-cross"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Domingo 30 de Agosto</div>
+                                <div class="tl-title">🌸 Santa Rosa de Lima — Feriado Nacional</div>
+                                <p class="tl-desc">Feriado nacional en honor a la patrona del Perú. No hay clases.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Septiembre</div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-chalkboard-teacher"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Lunes 07 de Septiembre</div>
+                                <div class="tl-title">📖 Día de la Educación Peruana</div>
+                                <p class="tl-desc">Reconocimiento a los docentes y actividades alusivas al rol de la educación en el Perú.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Octubre</div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-anchor"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Jueves 08 de Octubre</div>
+                                <div class="tl-title">⚓ Combate de Angamos — Feriado Nacional</div>
+                                <p class="tl-desc">Feriado nacional en conmemoración del Combate de Angamos. No hay clases.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-paint-brush"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Viernes 16 de Octubre</div>
+                                <div class="tl-title">🎨 Feria de Ciencias y Arte</div>
+                                <p class="tl-desc">Exposición de proyectos científicos y trabajos artísticos de todos los grados. Participación de padres de familia.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="examen">
+                            <div class="tl-icon examen"><i class="fa fa-pencil-alt"></i></div>
+                            <div class="tl-card examen">
+                                <div class="tl-date">19 – 23 de Octubre</div>
+                                <div class="tl-title">📝 Exámenes Finales — III Bimestre</div>
+                                <p class="tl-desc">Evaluaciones finales del tercer bimestre en todas las áreas académicas.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="vacacion">
+                            <div class="tl-icon vacacion"><i class="fa fa-umbrella-beach"></i></div>
+                            <div class="tl-card vacacion">
+                                <div class="tl-date">26 – 30 de Octubre</div>
+                                <div class="tl-title">🏖️ Vacaciones — III Bimestre</div>
+                                <p class="tl-desc">Periodo de descanso entre el tercer y cuarto bimestre.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Noviembre</div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-cross"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Domingo 01 de Noviembre</div>
+                                <div class="tl-title">✝️ Día de Todos los Santos — Feriado</div>
+                                <p class="tl-desc">Feriado nacional. No hay clases.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="b4">
+                            <div class="tl-icon b4"><i class="fa fa-play"></i></div>
+                            <div class="tl-card b4">
+                                <div class="tl-date">Lunes 02 de Noviembre</div>
+                                <div class="tl-title">🔴 Inicio del IV Bimestre</div>
+                                <p class="tl-desc">Inicio del cuarto y último bimestre del año escolar 2026.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-trophy"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Viernes 20 de Noviembre</div>
+                                <div class="tl-title">🏆 Día del Logro Escolar</div>
+                                <p class="tl-desc">Presentación pública de los logros académicos más destacados del año. Participación de toda la comunidad educativa.</p>
+                            </div>
+                        </div>
+
+                        <div class="mes-sep">Diciembre</div>
+
+                        <div class="tl-item" data-tipo="feriado">
+                            <div class="tl-icon feriado"><i class="fa fa-dove"></i></div>
+                            <div class="tl-card feriado">
+                                <div class="tl-date">Martes 08 de Diciembre</div>
+                                <div class="tl-title">🕊️ Inmaculada Concepción — Feriado Nacional</div>
+                                <p class="tl-desc">Feriado nacional. No hay clases.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="examen">
+                            <div class="tl-icon examen"><i class="fa fa-pencil-alt"></i></div>
+                            <div class="tl-card examen">
+                                <div class="tl-date">07 – 11 de Diciembre</div>
+                                <div class="tl-title">📝 Exámenes Finales — IV Bimestre</div>
+                                <p class="tl-desc">Evaluaciones finales del cuarto bimestre. Recuperaciones del 14 al 16 de diciembre.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="evento">
+                            <div class="tl-icon evento"><i class="fa fa-graduation-cap"></i></div>
+                            <div class="tl-card evento">
+                                <div class="tl-date">Viernes 18 de Diciembre</div>
+                                <div class="tl-title">🎓 Clausura y Premiación 2026</div>
+                                <p class="tl-desc">Ceremonia de clausura del año escolar 2026, entrega de libretas y premiación a los alumnos destacados.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item" data-tipo="vacacion">
+                            <div class="tl-icon vacacion"><i class="fa fa-star"></i></div>
+                            <div class="tl-card vacacion">
+                                <div class="tl-date">21 Dic 2026 — 06 Mar 2027</div>
+                                <div class="tl-title">🎉 Vacaciones de Fin de Año</div>
+                                <p class="tl-desc">Vacaciones de verano. Fin del año escolar 2026. ¡Felices fiestas a toda la comunidad Harrow!</p>
+                            </div>
+                        </div>
+
+                    </div><!-- /timeline -->
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="sidebar-sticky">
+
+                        <!-- Leyenda -->
+                        <div class="bg-white rounded p-4 mb-4 shadow-sm" style="border-top:4px solid var(--primary);">
+                            <h6 class="fw-bold mb-3"><i class="fa fa-info-circle text-primary me-2"></i>Leyenda</h6>
+                            <div class="d-flex flex-column gap-2">
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#1565c0;"></div><span>I Bimestre (Mar – May)</span></div>
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#2e7d32;"></div><span>II Bimestre (Jun – Ago)</span></div>
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#e65100;"></div><span>III Bimestre (Ago – Oct)</span></div>
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#880e4f;"></div><span>IV Bimestre (Nov – Dic)</span></div>
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#6a1ab0;"></div><span>Feriado Nacional</span></div>
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#0a5fa0;"></div><span>Evento Escolar</span></div>
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#0a7a3a;"></div><span>Vacaciones</span></div>
+                                <div class="leyenda-item"><div class="leyenda-dot" style="background:#a04a0a;"></div><span>Exámenes</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Feriados nacionales -->
+                        <div class="bg-white rounded p-4 mb-4 shadow-sm" style="border-top:4px solid #6a1ab0;">
+                            <h6 class="fw-bold mb-3"><i class="fa fa-calendar text-primary me-2"></i>Feriados Nacionales 2026</h6>
+                            <div class="feriado-row"><span class="feriado-date">01 Ene</span><span>Año Nuevo</span></div>
+                            <div class="feriado-row"><span class="feriado-date">02–03 Abr</span><span>Semana Santa</span></div>
+                            <div class="feriado-row"><span class="feriado-date">01 May</span><span>Día del Trabajo</span></div>
+                            <div class="feriado-row"><span class="feriado-date">07 Jun</span><span>Día de la Bandera</span></div>
+                            <div class="feriado-row"><span class="feriado-date">28 Jun</span><span>San Pedro y San Pablo</span></div>
+                            <div class="feriado-row"><span class="feriado-date">28–29 Jul</span><span>Fiestas Patrias</span></div>
+                            <div class="feriado-row"><span class="feriado-date">30 Ago</span><span>Santa Rosa de Lima</span></div>
+                            <div class="feriado-row"><span class="feriado-date">08 Oct</span><span>Combate de Angamos</span></div>
+                            <div class="feriado-row"><span class="feriado-date">01 Nov</span><span>Todos los Santos</span></div>
+                            <div class="feriado-row"><span class="feriado-date">08 Dic</span><span>Inmaculada Concepción</span></div>
+                            <div class="feriado-row"><span class="feriado-date">25 Dic</span><span>Navidad</span></div>
+                        </div>
+
+                        <!-- Contacto -->
+                        <div class="bg-white rounded p-4 shadow-sm" style="border-top:4px solid var(--primary);">
+                            <h6 class="fw-bold mb-2"><i class="fa fa-question-circle text-primary me-2"></i>¿Tienes dudas?</h6>
+                            <p class="small text-muted mb-3">Contáctanos para cualquier consulta sobre el calendario escolar.</p>
+                            <a href="https://wa.me/51937266321" target="_blank" class="btn btn-primary w-100 mb-2">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                            <a href="contact.html" class="btn btn-outline-secondary w-100">
+                                <i class="fa fa-envelope me-2"></i>Formulario de contacto
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3"><i class="fa fa-shield-alt text-primary me-2"></i>Harrow School</h4>
+                    <p class="mb-3" style="color:rgba(255,255,255,0.6);font-size:0.9rem;">
+                        Institución educativa privada comprometida con la excelencia académica y el desarrollo integral de cada estudiante. Nuevo Chimbote, Áncash – Perú.
+                    </p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/harrowbangkok/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/harrow.school/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@aislharrowschools" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://wa.me/51937266321" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Enlaces Rápidos</h4>
+                    <a class="btn btn-link" href="index.html">Inicio</a>
+                    <a class="btn btn-link" href="about.html">Nosotros</a>
+                    <a class="btn btn-link" href="cursos.html">Áreas Académicas</a>
+                    <a class="btn btn-link" href="equipo.html">Nuestro Equipo</a>
+                    <a class="btn btn-link" href="admision.html">Admisión 2026</a>
+                    <a class="btn btn-link" href="calendario.html">Calendario 2026</a>
+                    <a class="btn btn-link" href="contact.html">Contacto</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contacto</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Nuevo Chimbote, Áncash, Perú</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+51 937 266 321</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>admisiones@harrowschool.edu.pe</p>
+                    <p class="mb-2"><i class="fa fa-clock me-3"></i>Lun – Vie: 8:00am – 5:00pm</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Matrícula 2026</h4>
+                    <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;">El año escolar 2026 está activo. Plazas limitadas. ¡Asegura el lugar de tu hijo!</p>
+                    <a href="admision.html" class="btn btn-primary w-100 py-2 mt-2"><i class="fa fa-arrow-right me-2"></i>Solicitar Matrícula</a>
+                    <a href="contact.html" class="btn btn-outline-light w-100 py-2 mt-2"><i class="fa fa-envelope me-2"></i>Contáctanos</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; 2026 <a class="border-bottom" href="index.html">Harrow School S.A.C.</a> — Todos los derechos reservados.
+                        <br><small style="color:rgba(255,255,255,0.4);">Desarrollado por Grupo 1 · SENATI Nuevo Chimbote</small>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="index.html">Inicio</a>
+                            <a href="about.html">Nosotros</a>
+                            <a href="contact.html">Contacto</a>
+                            <a href="admision.html">Matrícula</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function filtrar(tipo, btn) {
+            // Actualizar botones
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'all','b1','b2','b3','b4','feriado','evento','vacacion','examen');
+            });
+            btn.classList.add('active', tipo);
+
+            // Mostrar/ocultar items
+            document.querySelectorAll('.tl-item').forEach(item => {
+                if (tipo === 'all' || item.dataset.tipo === tipo) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            // Mostrar/ocultar separadores de mes
+            document.querySelectorAll('.mes-sep').forEach(sep => {
+                // Buscar el siguiente item visible
+                let next = sep.nextElementSibling;
+                let visible = false;
+                while (next && !next.classList.contains('mes-sep')) {
+                    if (next.classList.contains('tl-item') && !next.classList.contains('hidden')) {
+                        visible = true;
+                        break;
+                    }
+                    next = next.nextElementSibling;
+                }
+                sep.style.display = visible ? '' : 'none';
+            });
+        }
+    </script>
+
+</body>
+</html>
