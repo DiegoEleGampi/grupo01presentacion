@@ -22,7 +22,7 @@ function responder_error($mensaje) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    header("Location: ../contact.html");
+    header("Location: ../contacto.html");
     exit;
 }
 

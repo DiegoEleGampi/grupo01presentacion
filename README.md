@@ -17,12 +17,12 @@ Página web desarrollada como proyecto académico para presentar la oferta educa
 | Página | Descripción |
 |--------|-------------|
 | `index.html` | Inicio — Hero, servicios, áreas académicas, equipo y testimonios |
-| `about.html` | Nosotros — Misión, visión e historia institucional |
+| `nosotros.html` | Nosotros — Misión, visión e historia institucional |
 | `cursos.html` | Áreas Académicas — Las 8 áreas curriculares |
 | `equipo.html` | Nuestro Equipo — Docentes destacados |
 | `admision.html` | Admisión 2026 — Requisitos y formulario de solicitud |
 | `testimonial.html` | Testimonios — Opiniones de familias y alumnos |
-| `contact.html` | Contacto — Formulario, mapa y redes sociales |
+| `contacto.html` | Contacto — Formulario, mapa y redes sociales |
 
 ---
 
